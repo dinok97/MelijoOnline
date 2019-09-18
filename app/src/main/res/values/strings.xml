@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Melijo Online</string>
+    <string name="belum_punya_akun">Belum punya akun? Daftar di sini</string>
+    <string name="logo">Logo</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="lupa_kata_sandi">Lupa Kata Sandi?</string>
+    <string name="alamat_email">Alamat Email</string>
+    <string name="kata_sandi">Kata Sandi</string>
+</resources>
