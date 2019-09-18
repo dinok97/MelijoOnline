@@ -7,4 +7,11 @@
     <string name="lupa_kata_sandi">Lupa Kata Sandi?</string>
     <string name="alamat_email">Alamat Email</string>
     <string name="kata_sandi">Kata Sandi</string>
+    <string name="pendaftaran">Pendaftaran</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="alamat">Alamat</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="ulangi_kata_sandi">Ulangi Kata Sandi</string>
+    <string name="daftar">Daftar</string>
+    <string name="sudah_punya_akun">Sudah punya akun? Login disini</string>
 </resources>
