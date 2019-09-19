@@ -14,4 +14,7 @@
     <string name="ulangi_kata_sandi">Ulangi Kata Sandi</string>
     <string name="daftar">Daftar</string>
     <string name="sudah_punya_akun">Sudah punya akun? Login disini</string>
+    <string name="beranda">Beranda</string>
+    <string name="keranjang">Keranjang</string>
+    <string name="akun">Akun</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/beranda"/>
+
+    <item
+        android:id="@+id/navigation_trolley"
+        android:icon="@drawable/ic_trolley_black_24dp"
+        android:title="@string/keranjang"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/akun"/>
+
+</menu>
