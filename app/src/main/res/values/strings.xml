@@ -23,4 +23,5 @@
     <string name="accont_fragment">Accont Fragment</string>
     <string name="trolley_fragment">Trolley Fragment</string>
     <string name="home_fragment">Home Fragment</string>
+    <string name="slider_image">Slider Image</string>
 </resources>
