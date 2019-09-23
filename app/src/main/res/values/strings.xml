@@ -24,4 +24,12 @@
     <string name="trolley_fragment">Trolley Fragment</string>
     <string name="home_fragment">Home Fragment</string>
     <string name="slider_image">Slider Image</string>
+    <string name="yuk_belanja">Nikmati kemudahan pasar dalam genggaman. Yuk, Pesan Sekarang!</string>
+    <string name="kategori">Kategori</string>
+    <string name="sayur">Sayur</string>
+    <string name="rempah">Rempah</string>
+    <string name="paket_sayur">Paket Sayur</string>
+    <string name="lain_lain">Lain-lain</string>
+    <string name="daging_amp_ayam"><![CDATA[Daging & Ayam]]></string>
+    <string name="seafood">Seafood</string>
 </resources>
