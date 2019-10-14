@@ -10,7 +10,6 @@
     <string name="pendaftaran">Pendaftaran</string>
     <string name="nama_lengkap">Nama Lengkap</string>
     <string name="alamat">Alamat</string>
-    <string name="nomor_telepon">Nomor Telepon</string>
     <string name="ulangi_kata_sandi">Ulangi Kata Sandi</string>
     <string name="daftar">Daftar</string>
     <string name="sudah_punya_akun">Sudah punya akun? Login disini</string>
@@ -32,4 +31,15 @@
     <string name="lain_lain">Lain-lain</string>
     <string name="daging_amp_ayam"><![CDATA[Daging & Ayam]]></string>
     <string name="seafood">Seafood</string>
+    <string name="akun_anda">Akun Anda</string>
+    <string name="user_name">User Name</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="location">Location</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="saldo_anda">Saldo Anda</string>
+    <string name="tambah">Tambah</string>
+    <string name="rp_0">Rp 0</string>
+    <string name="riwayat">Riwayat</string>
 </resources>
