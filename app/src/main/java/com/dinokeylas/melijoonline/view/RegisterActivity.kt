@@ -5,20 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import com.dinokeylas.melijoonline.HomeActivity
-import com.dinokeylas.melijoonline.LoginActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.contract.RegisterContract
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.presenter.RegisterPresenter
 import com.dinokeylas.melijoonline.util.MD5
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.et_email
 import kotlinx.android.synthetic.main.activity_register.et_password
-import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity(), RegisterContract.View {
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "798599916498",
+    "firebase_url": "https://melijo-online.firebaseio.com",
+    "project_id": "melijo-online",
+    "storage_bucket": "melijo-online.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798599916498:android:f44237cd8cd34e3154760b",
+        "android_client_info": {
+          "package_name": "com.dinokeylas.melijoonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798599916498-4p26bi1nl0ggjsqhujv8mkf3mi7sem00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dinokeylas.melijoonline",
+            "certificate_hash": "e84c84d5758fc314a7d09df1e02dab44a666acb2"
+          }
+        },
+        {
+          "client_id": "798599916498-7mg84j44s6h6fbn7vsb8rol7eq6363bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7YY6d4zfWT3ItLwXPAahxUfE6RgjJ14o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798599916498-7mg84j44s6h6fbn7vsb8rol7eq6363bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
