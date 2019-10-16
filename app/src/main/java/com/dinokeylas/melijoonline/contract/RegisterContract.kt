@@ -1,18 +1,24 @@
 package com.dinokeylas.melijoonline.contract
 
+import com.dinokeylas.melijoonline.model.User
+
 interface RegisterContract {
 
     interface View{
-        fun validateInput(fullName: String, email: String, address: String, phoneNumber: String, password: String, passwordValidation: String): Boolean
-        fun onRegisterSuccess()
+        fun validateInput(user: User): Boolean
+        fun showToastMessage(message: String)
         fun showProgressBar()
         fun hideProgressBar()
         fun navigateToHome()
+        fun navigateToLogin()
     }
 
     interface Presenter {
-        fun validateInput(fullName: String, email: String, address: String, phoneNumber: String, password: String, passwordValidation: String)
-        fun register()
+        fun isValidInput(user: User): Boolean
+        fun register(user: User)
+        fun saveData(user: User)
+        fun onRegisterSuccess()
+        fun onRegisterFailure()
     }
 
 }

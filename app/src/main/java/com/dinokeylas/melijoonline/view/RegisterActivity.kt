@@ -1,15 +1,19 @@
 package com.dinokeylas.melijoonline.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.dinokeylas.melijoonline.HomeActivity
+import com.dinokeylas.melijoonline.LoginActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.contract.RegisterContract
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.presenter.RegisterPresenter
+import com.dinokeylas.melijoonline.util.MD5
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.et_email
@@ -27,85 +31,84 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
         registerPresenter = RegisterPresenter(this)
 
         btn_register.setOnClickListener{
-            registerPresenter.validateInput(
+            val user = User(
+                "user name",
                 et_full_name.text.toString(),
                 et_email.text.toString(),
                 et_address.text.toString(),
                 et_phone_number.text.toString(),
-                et_password.text.toString(),
-                et_password_validation.text.toString()
+                "profile image url",
+                MD5.encript(et_password.text.toString())
             )
+            registerPresenter.register(user)
+        }
+
+        tv_login.setOnClickListener {
+            navigateToLogin()
         }
 
     }
 
-    override fun validateInput(
-        fullName: String,
-        email: String,
-        address: String,
-        phoneNumber: String,
-        password: String,
-        passwordValidation: String
-    ): Boolean {
+    override fun validateInput(user: User): Boolean {
 
             //full name should not empty
-            if (fullName.isEmpty()){
+            if (user.fullName.isEmpty()){
                 et_full_name.error = "Nama Tidak Boleh Kosong"
                 et_full_name.requestFocus()
                 return false
             }
 
             //email should not empty
-            if (email.isEmpty()){
+            if (user.email.isEmpty()){
                 et_email.error = "Email Tidak Boleh Kosong"
                 et_email.requestFocus()
                 return false
             }
 
             //email should follow pattern
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            if (!Patterns.EMAIL_ADDRESS.matcher(user.email).matches()){
                 et_email.error = "Format email salah"
                 et_email.requestFocus()
                 return false
             }
 
             //address should not empty
-            if (address.isEmpty()){
+            if (user.address.isEmpty()){
                 et_address.error = "Alamat Tidak Boleh Kosong"
                 et_address.requestFocus()
                 return false
             }
 
             //phone number should not empty
-            if (phoneNumber.isEmpty()){
+            if (user.phoneNumber.isEmpty()){
                 et_phone_number.error = "Nomor Telepon Tidak Boleh Kosong"
                 et_phone_number.requestFocus()
                 return false
             }
 
             //password should not empty
-            if (password.isEmpty()){
+            if (user.password.isEmpty()){
                 et_password.error = "Kata Sandi Tidak Boleh Kosong"
                 et_password.requestFocus()
                 return false
             }
 
             //password contains minimum 6 character
-            if (password.length<6){
+            if (user.password.length<6){
                 et_password.error = "Kata Sandi minimal terdiri dari 6 karakter"
                 et_password.requestFocus()
                 return false
             }
 
             //password should not null
-            if (passwordValidation.isEmpty()){
+            if (et_password_validation.text.toString().isEmpty()){
                 et_password_validation.error = "Kata Sandi Tidak Boleh Kosong"
                 et_password_validation.requestFocus()
                 return false
             }
 
             // password and password validation must be same
-            if (password != passwordValidation){
+            if (user.password != MD5.encript(et_password_validation.text.toString())){
                 et_password.error = "Kata Sandi Harus Sama"
                 et_password.requestFocus()
                 return false
@@ -114,8 +117,9 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
         return true
     }
 
-    override fun onRegisterSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showToastMessage(message: String) {
+        val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
+        toast.show()
     }
 
     override fun showProgressBar() {
@@ -127,7 +131,11 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
     }
 
     override fun navigateToHome() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        startActivity(Intent(this, HomeActivity::class.java))
+    }
+
+    override fun navigateToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 
 }
