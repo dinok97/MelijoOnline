@@ -8,6 +8,11 @@ class LoginPresenter(_view: LoginContract.View): LoginContract.Presenter{
 
     private val view: LoginContract.View = _view
 
+    init {
+        val firebaseAuth = FirebaseAuth.getInstance()
+        if(firebaseAuth.currentUser!=null) view.navigateToHome()
+    }
+
     override fun login(email: String, password: String) {
         val mAuth = FirebaseAuth.getInstance()
 
