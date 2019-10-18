@@ -28,12 +28,12 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
 
         btn_register.setOnClickListener{
             val user = User(
-                "user name",
+                et_full_name.text.toString(),
                 et_full_name.text.toString(),
                 et_email.text.toString(),
                 et_address.text.toString(),
                 et_phone_number.text.toString(),
-                "profile image url",
+                "default profile image url",
                 MD5.encript(et_password.text.toString())
             )
             registerPresenter.register(user)
