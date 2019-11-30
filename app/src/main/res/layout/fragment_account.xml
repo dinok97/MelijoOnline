@@ -41,8 +41,8 @@
 
             <TextView
                 android:id="@+id/tv_nominal"
-                android:layout_width="66dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/rp_0"
                 app:layout_constraintBottom_toBottomOf="parent"
