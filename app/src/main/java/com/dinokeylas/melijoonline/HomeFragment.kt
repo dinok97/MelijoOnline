@@ -1,12 +1,15 @@
 package com.dinokeylas.melijoonline
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.ViewPager
 import com.viewpagerindicator.CirclePageIndicator
 import java.util.*
@@ -35,6 +38,9 @@ class HomeFragment : Fragment() {
 
         //set the indicator
         setIndicator()
+
+        val cvVegetable: CardView = view.findViewById(R.id.cv_vegetable)
+        cvVegetable.setOnClickListener { startActivity(Intent(context, VegetableActivity::class.java)) }
 
         return view
     }
