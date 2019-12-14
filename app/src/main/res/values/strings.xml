@@ -55,4 +55,9 @@
     <string name="minus">-</string>
     <string name="_1">1</string>
     <string name="total">Total:</string>
+    <string name="edit_profil">Edit Profil</string>
+    <string name="setting">setting</string>
+    <string name="nama_akun">Nama Akun</string>
+    <string name="simpan">Simpan</string>
+    <string name="batal">Batal</string>
 </resources>
