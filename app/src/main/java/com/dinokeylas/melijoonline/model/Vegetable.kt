@@ -1,9 +1,9 @@
 package com.dinokeylas.melijoonline.model
 
 data class Vegetable (
-    var vegetableName: String,
-    var price: Int,
-    var description: String,
-    var sellerName: String,
-    var imageUrl: String
-)
+    val name: String = "",
+    val price: Int = 0,
+    val description: String = "",
+    val sellerName: String = "",
+    val imageUrl: String = ""
+    )
