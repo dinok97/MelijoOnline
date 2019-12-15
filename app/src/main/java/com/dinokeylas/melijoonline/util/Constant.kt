@@ -7,6 +7,7 @@ interface Constant {
         companion object{
             val USER = "user"
             val VEGETABLE = "vegetable"
+            val TRANSACTION = "transaction"
         }
 
     }
