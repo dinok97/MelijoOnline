@@ -1,9 +1,14 @@
 package com.dinokeylas.melijoonline.model
 
+import com.google.firebase.firestore.Exclude
+import java.util.*
+
 data class Transaction (
-    val transactionId: String,
+    @get:Exclude val transactionId: String,
+    val transactionCode: String,
     val userId: String,
     val userEmail: String,
+    val date: Date,
     val itemName: String,
     val userLocation: String,
     val itemQty: Int,

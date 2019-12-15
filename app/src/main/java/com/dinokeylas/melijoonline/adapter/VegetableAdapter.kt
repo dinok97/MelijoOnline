@@ -56,6 +56,8 @@ class VegetableAdapter(private val context: Context, private val vegetableList: 
                 putExtra("vegetableName", vegetable.name)
                 putExtra("vegetablePrice", vegetable.price)
                 putExtra("vegetableDesc", vegetable.description)
+                putExtra("sellerName", vegetable.sellerName)
+                putExtra("imageUrl", vegetable.imageUrl)
             }
         context.startActivity(nextScreenIntent)
     }
