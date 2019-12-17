@@ -10,6 +10,8 @@ data class Transaction (
     val userEmail: String,
     val date: Date,
     val itemName: String,
+    val itemPrise: Int,
+    val imageUrl: String,
     val userLocation: String,
     val itemQty: Int,
     val totalPay: Int,

@@ -73,7 +73,8 @@ class DetailVegetableActivity : AppCompatActivity() {
             val transactionCode = generateString(Random())
             val date = Calendar.getInstance().time
             val transaction = Transaction("tranId", transactionCode, userId!!, user.email, date,
-                vegetableName, user.address, quantity, totalPay, sellerName, false, "pesan" )
+                vegetableName, vegetablePrice, imageUrl, user.address, quantity, totalPay, sellerName,
+                false, "pesan" )
             if(isValidData(transaction)){
                 showInformationDialog(transaction)
             } else {
