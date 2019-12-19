@@ -30,8 +30,9 @@ class VegetableAdapter(private val context: Context, private val vegetableList: 
     override fun getItemCount(): Int = vegetableList.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        val vegetablePrise = vegetableList[position].price
         holder.tvVegetableName.text = vegetableList[position].name
-        holder.tvVegetablePrice.text = vegetableList[position].price.toString()
+        holder.tvVegetablePrice.text = String.format("Rp $vegetablePrise,-")
         Glide.with(context).load(vegetableList[position].imageUrl).into(holder.ivVegetable)
         holder.cvVegetable.setOnClickListener(onClickListener(position))
     }

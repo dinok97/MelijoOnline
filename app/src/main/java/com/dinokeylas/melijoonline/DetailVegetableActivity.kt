@@ -47,7 +47,7 @@ class DetailVegetableActivity : AppCompatActivity() {
         val imageUrl = intent.getStringExtra("imageUrl")
 
         tv_vegetable_name.text = vegetableName
-        tv_vegetable_price.text = vegetablePrice.toString()
+        tv_vegetable_price.text = String.format("Rp $vegetablePrice,-")
         tv_vegetable_desc.text = vegetableDesc
         tv_quantity.text = quantity.toString()
         tv_total_pay.text = vegetableStringPrice
