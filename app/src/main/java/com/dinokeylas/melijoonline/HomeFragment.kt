@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Switch
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.ViewPager
 import com.viewpagerindicator.CirclePageIndicator
@@ -46,7 +44,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun populateList(): ArrayList<SliderModel> {
-        val imageList = intArrayOf(R.drawable.place, R.drawable.place, R.drawable.history)
+        val imageList = intArrayOf(R.drawable.banner_one, R.drawable.banner_two, R.drawable.banner_three)
         val list = ArrayList<SliderModel>()
 
         for (i in 0..2) {

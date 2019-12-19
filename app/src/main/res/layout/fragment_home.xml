@@ -15,7 +15,7 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="fill_parent"
-            android:layout_height="250dp"
+            android:layout_height="220dp"
             android:layout_alignParentTop="true" />
 
         <com.viewpagerindicator.CirclePageIndicator
@@ -23,7 +23,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="215dp"
+            android:layout_marginTop="190dp"
             android:padding="10dip"
             app:centered="true"
             app:fillColor="@color/colorPrimaryDark"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:textSize="12sp"
+        android:textSize="10sp"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorWhite"
         android:text="@string/yuk_belanja">
@@ -64,7 +64,7 @@
             android:id="@+id/cv_seasoning"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toStartOf="@+id/cv_vegetable_packet"
             app:layout_constraintHorizontal_bias="0.5"
@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/rempah"
-                android:src="@drawable/history" />
+                android:src="@drawable/bumbu_rempah" />
 
         </androidx.cardview.widget.CardView>
 
@@ -83,7 +83,7 @@
             android:id="@+id/cv_vegetable"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toStartOf="@+id/cv_seasoning"
             app:layout_constraintHorizontal_bias="0.5"
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:contentDescription="@string/sayur"
-                android:src="@drawable/history" />
+                android:src="@drawable/sayur" />
 
         </androidx.cardview.widget.CardView>
 
@@ -102,7 +102,7 @@
             android:id="@+id/cv_vegetable_packet"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/paket_sayur"
-                android:src="@drawable/history" />
+                android:src="@drawable/sayur_bumbu" />
 
         </androidx.cardview.widget.CardView>
 
@@ -168,7 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:contentDescription="@string/seafood"
-                android:src="@drawable/history" />
+                android:src="@drawable/seafood" />
 
         </androidx.cardview.widget.CardView>
 
@@ -187,7 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:contentDescription="@string/lain_lain"
-                android:src="@drawable/history" />
+                android:src="@drawable/buah" />
 
         </androidx.cardview.widget.CardView>
 
@@ -206,7 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:contentDescription="@string/daging_amp_ayam"
-                android:src="@drawable/history" />
+                android:src="@drawable/daging_dan_ayam" />
 
         </androidx.cardview.widget.CardView>
 
