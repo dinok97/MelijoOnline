@@ -1,4 +1,4 @@
-package com.dinokeylas.melijoonline
+package com.dinokeylas.melijoonline.model
 
 class SliderModel {
     private var image: Int = 0

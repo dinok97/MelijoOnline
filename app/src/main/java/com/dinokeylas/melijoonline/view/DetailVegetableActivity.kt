@@ -1,4 +1,4 @@
-package com.dinokeylas.melijoonline
+package com.dinokeylas.melijoonline.view
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
+import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.model.Transaction
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant

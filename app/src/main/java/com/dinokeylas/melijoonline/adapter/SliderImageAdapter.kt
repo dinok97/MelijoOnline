@@ -1,4 +1,4 @@
-package com.dinokeylas.melijoonline
+package com.dinokeylas.melijoonline.adapter
 
 import android.content.Context
 import android.os.Parcelable
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
+import com.dinokeylas.melijoonline.R
+import com.dinokeylas.melijoonline.model.SliderModel
 
 class SliderImageAdapter (context: Context, private val imageModelArrayList: ArrayList<SliderModel>): PagerAdapter() {
 

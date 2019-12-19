@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dinokeylas.melijoonline.DetailVegetableActivity
+import com.dinokeylas.melijoonline.view.DetailVegetableActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.model.Vegetable
 

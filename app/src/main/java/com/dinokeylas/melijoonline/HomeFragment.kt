@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.ViewPager
+import com.dinokeylas.melijoonline.adapter.SliderImageAdapter
+import com.dinokeylas.melijoonline.model.SliderModel
+import com.dinokeylas.melijoonline.view.VegetableActivity
 import com.viewpagerindicator.CirclePageIndicator
 import java.util.*
 import kotlin.collections.ArrayList
@@ -32,7 +35,10 @@ class HomeFragment : Fragment() {
         imageModelArrayList = populateList()
 
         //set the adapter
-        viewPager!!.adapter = SliderImageAdapter(view.context, imageModelArrayList!!)
+        viewPager!!.adapter = SliderImageAdapter(
+            view.context,
+            imageModelArrayList!!
+        )
 
         //set the indicator
         setIndicator()
