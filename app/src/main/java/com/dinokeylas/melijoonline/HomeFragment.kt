@@ -44,7 +44,9 @@ class HomeFragment : Fragment() {
         setIndicator()
 
         val cvVegetable: CardView = view.findViewById(R.id.cv_vegetable)
+        val cvSeasoning: CardView = view.findViewById(R.id.cv_seasoning)
         cvVegetable.setOnClickListener { startActivity(Intent(context, VegetableActivity::class.java)) }
+        cvSeasoning.setOnClickListener { startActivity(Intent(context, SeasoningActivity::class.java)) }
 
         return view
     }
