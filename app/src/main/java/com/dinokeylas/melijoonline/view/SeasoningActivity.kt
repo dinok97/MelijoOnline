@@ -1,4 +1,4 @@
-package com.dinokeylas.melijoonline
+package com.dinokeylas.melijoonline.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dinokeylas.melijoonline.HomeActivity
+import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.adapter.SeasoningAdapter
 import com.dinokeylas.melijoonline.contract.SeasoningContract
 import com.dinokeylas.melijoonline.model.Seasoning

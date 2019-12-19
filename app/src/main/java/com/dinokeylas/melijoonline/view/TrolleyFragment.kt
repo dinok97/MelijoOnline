@@ -1,4 +1,4 @@
-package com.dinokeylas.melijoonline
+package com.dinokeylas.melijoonline.view
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dinokeylas.melijoonline.HomeActivity
+import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.adapter.TrolleyAdapter
 import com.dinokeylas.melijoonline.model.Transaction
 import com.dinokeylas.melijoonline.util.Constant

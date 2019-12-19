@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.ViewPager
 import com.dinokeylas.melijoonline.adapter.SliderImageAdapter
 import com.dinokeylas.melijoonline.model.SliderModel
+import com.dinokeylas.melijoonline.view.SeasoningActivity
 import com.dinokeylas.melijoonline.view.VegetableActivity
 import com.viewpagerindicator.CirclePageIndicator
 import java.util.*

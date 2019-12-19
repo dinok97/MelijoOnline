@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailSeasoningActivity"></activity>
-        <activity android:name=".SeasoningActivity" />
+        <activity android:name=".view.DetailSeasoningActivity"></activity>
+        <activity android:name=".view.SeasoningActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".view.DetailVegetableActivity" />
         <activity android:name=".view.VegetableActivity" />

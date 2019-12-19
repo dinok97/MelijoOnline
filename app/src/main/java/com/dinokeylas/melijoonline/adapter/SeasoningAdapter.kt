@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dinokeylas.melijoonline.DetailSeasoningActivity
+import com.dinokeylas.melijoonline.view.DetailSeasoningActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.model.Seasoning
 
