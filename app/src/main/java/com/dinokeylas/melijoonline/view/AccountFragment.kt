@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.dinokeylas.melijoonline.EditProfileActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.contract.AccountContract
 import com.dinokeylas.melijoonline.model.User
@@ -26,6 +27,10 @@ class AccountFragment : Fragment(), AccountContract.View {
 
         view.btn_logout.setOnClickListener {
             accountPresenter.logout()
+        }
+
+        view.iv_edit_profile.setOnClickListener {
+            startActivity(Intent(context, EditProfileActivity::class.java))
         }
 
         return view
