@@ -64,4 +64,5 @@
     <string name="biaya_pengiriman">Biaya Pengiriman</string>
     <string name="vegetable_qty">vegetable_qty</string>
     <string name="tidak_ada_item_yang_dipesan_saat_ini">Tidak ada item yang dipesan saat ini</string>
+    <string name="buah_buahan">Buah-buahan</string>
 </resources>

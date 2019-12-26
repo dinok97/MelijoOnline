@@ -30,7 +30,7 @@
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="25sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,13 +65,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nama_lengkap"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium" />
             <EditText
                 android:id="@+id/et_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:inputType="text"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="@string/nama_lengkap"
                 android:autofillHints="@string/alamat_email"/>
 
@@ -80,13 +81,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/email"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
             <EditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:inputType="textEmailAddress"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="@string/alamat_email"
                 android:autofillHints="@string/alamat_email"/>
 
@@ -95,13 +97,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/alamat"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
             <EditText
                 android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:inputType="text"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="@string/alamat"
                 android:autofillHints="@string/alamat"/>
 
@@ -110,13 +113,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nomor_telepon"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
             <EditText
                 android:id="@+id/et_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:inputType="phone"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="@string/nomor_telepon"
                 android:autofillHints="@string/nomor_telepon"/>
 
@@ -126,13 +130,14 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/kata_sandi"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="17sp"
+                android:fontFamily="@font/roboto_regular"
                 android:autofillHints="@string/kata_sandi"
                 android:hint="@string/kata_sandi"/>
 
@@ -142,13 +147,14 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/ulangi_kata_sandi"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
             <EditText
                 android:id="@+id/et_password_validation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:textSize="17sp"
+                android:fontFamily="@font/roboto_regular"
                 android:autofillHints="@string/ulangi_kata_sandi"
                 android:hint="@string/ulangi_kata_sandi"/>
 
@@ -156,12 +162,13 @@
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_round_green"
                 android:text="@string/daftar"
-                android:textStyle="bold"
                 android:textSize="17sp"
-                android:padding="20dp"
+                android:padding="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textAllCaps="false"
                 android:textColor="@color/colorWhite"/>
 
         </LinearLayout>
@@ -182,8 +189,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textStyle="bold"
             android:textSize="15sp"
+            android:fontFamily="@font/roboto_bold"
             android:text="@string/sudah_punya_akun"/>
     </LinearLayout>
 

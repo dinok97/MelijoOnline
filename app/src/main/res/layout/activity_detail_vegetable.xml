@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:text="@string/vegetable_name"
-            android:textStyle="bold"
+            android:fontFamily="@font/roboto_medium"
             android:layout_marginStart="20dp"/>
 
         <TextView
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
+            android:fontFamily="@font/roboto_regular"
             android:text="@string/vegetable_description"
             android:layout_marginStart="20dp"/>
 
@@ -61,7 +62,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp"
             android:text="@string/default_price"
-            android:textStyle="bold"
+            android:fontFamily="@font/roboto_bold"
             android:layout_marginStart="20dp"/>
 
         <LinearLayout
@@ -77,6 +78,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto_light"
                 android:layout_weight="2"
                 android:text="@string/berapa_banyak"/>
 
@@ -96,6 +98,7 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textSize="20sp"
+                android:fontFamily="@font/roboto_bold"
                 android:text="@string/_1"/>
 
             <Button
@@ -121,6 +124,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:fontFamily="@font/roboto_light"
                 android:layout_weight="1"
                 android:text="@string/total"/>
 
@@ -129,7 +133,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"
                 android:layout_weight="2"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="@string/rp_0"/>
@@ -144,7 +148,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:textSize="17sp"
-            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/bg_button_round_green"
             android:textColor="@color/colorWhite"
             android:text="@string/masukkan_keranjang"
             android:textAllCaps="false"/>

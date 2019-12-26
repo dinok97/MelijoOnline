@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/akun_anda"
-        android:textStyle="bold"
         android:textSize="15sp"
         android:textColor="@color/colorWhite"
+        android:fontFamily="@font/roboto_bold"
         android:gravity="center|start"
         android:paddingStart="20dp"
         android:paddingEnd="0dp"
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/rp_0"
+                android:fontFamily="@font/roboto_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_wallet"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="@string/tambah"
+                android:fontFamily="@font/roboto_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_riwayat"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -65,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="@string/riwayat"
+                android:fontFamily="@font/roboto_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -108,6 +111,7 @@
             android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="@string/user_name"
+            android:fontFamily="@font/roboto_regular"
             app:layout_constraintEnd_toStartOf="@+id/iv_edit_profile"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -183,6 +187,7 @@
             android:layout_marginTop="24dp"
             android:text="@string/email"
             android:textSize="15sp"
+            android:fontFamily="@font/roboto_regular"
             app:layout_constraintStart_toEndOf="@+id/iv_email"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -194,6 +199,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/nomor_telepon"
             android:textSize="15sp"
+            android:fontFamily="@font/roboto_regular"
             app:layout_constraintStart_toEndOf="@+id/iv_phone_number"
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -205,6 +211,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/lokasi"
             android:textSize="15sp"
+            android:fontFamily="@font/roboto_regular"
             app:layout_constraintStart_toEndOf="@+id/iv_phone_number"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -246,10 +253,12 @@
 
         <Button
             android:id="@+id/btn_logout"
-            android:layout_width="156dp"
-            android:layout_height="48dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/keluar"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3" />

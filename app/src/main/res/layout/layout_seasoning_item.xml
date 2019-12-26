@@ -38,7 +38,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginStart="8dp"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/roboto_bold" />
 
             <TextView
                 android:id="@+id/tv_seasoning_price"
@@ -47,7 +47,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/default_price" />
+                android:text="@string/default_price"
+                android:fontFamily="@font/roboto_regular"/>
 
         </LinearLayout>
 

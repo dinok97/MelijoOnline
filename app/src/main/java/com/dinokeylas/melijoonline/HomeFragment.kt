@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.viewpager.widget.ViewPager
 import com.dinokeylas.melijoonline.adapter.SliderImageAdapter
@@ -46,8 +47,16 @@ class HomeFragment : Fragment() {
 
         val cvVegetable: CardView = view.findViewById(R.id.cv_vegetable)
         val cvSeasoning: CardView = view.findViewById(R.id.cv_seasoning)
+        val cvVegetablePack: CardView = view.findViewById(R.id.cv_vegetable_packet)
+        val cvMeet: CardView = view.findViewById(R.id.cv_chicken_meet)
+        val cvOtherMenu: CardView = view.findViewById(R.id.cv_other_menu)
+        val cvSeafood: CardView = view.findViewById(R.id.cv_seafood)
         cvVegetable.setOnClickListener { startActivity(Intent(context, VegetableActivity::class.java)) }
         cvSeasoning.setOnClickListener { startActivity(Intent(context, SeasoningActivity::class.java)) }
+        cvVegetablePack.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
+        cvMeet.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
+        cvOtherMenu.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
+        cvSeafood.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
 
         return view
     }
