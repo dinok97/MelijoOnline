@@ -15,11 +15,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="@string/edit_profil"
             android:textSize="20sp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/colorBlack"
             android:gravity="center"/>
 
         <LinearLayout
@@ -40,11 +40,11 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:src="@drawable/person_icon"
-                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_color="@color/colorGrey"
                     app:civ_border_width="2dp" />
 
                 <ProgressBar
-                    android:id="@+id/progressbar"
+                    android:id="@+id/progress_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -74,6 +74,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="1dp"
                 android:inputType="text"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
                 android:background="@color/colorWhite"
                 android:hint="@string/nama_akun"
                 android:autofillHints="@string/nama_akun"
@@ -90,6 +92,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="1dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
                 android:background="@color/colorWhite"
                 android:autofillHints="@string/nama_lengkap"
                 android:hint="@string/nama_lengkap"
@@ -106,8 +110,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="1dp"
-                android:textSize="18sp"
-                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorBlack"
                 android:background="@color/colorWhite"
                 android:autofillHints="@string/email"
                 android:hint="@string/email"
@@ -124,6 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="1dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
                 android:background="@color/colorWhite"
                 android:digits="0123456789"
                 android:hint="@string/nomor_telepon"
@@ -143,6 +150,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="1dp"
                 android:inputType="text"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
                 android:autofillHints="@string/alamat"
                 android:background="@color/colorWhite"
                 android:hint="@string/alamat"
@@ -153,9 +162,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryDark"
                 android:text="@string/simpan"
+                android:textSize="15sp"
                 android:textAllCaps="false"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/bg_button_round_green"
                 android:textColor="@color/colorWhite" />
 
             <Button
@@ -163,9 +174,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:background="@color/colorPrimaryDark"
                 android:text="@string/batal"
+                android:textSize="15sp"
                 android:textAllCaps="false"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/bg_button_round_green"
                 android:textColor="@color/colorWhite" />
 
         </LinearLayout>
