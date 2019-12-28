@@ -12,6 +12,11 @@
         android:title="@string/keranjang"/>
 
     <item
+        android:id="@+id/navigation_transaction"
+        android:icon="@drawable/ic_transform_grey_24dp"
+        android:title="@string/transaksi"/>
+
+    <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/akun"/>
