@@ -1,10 +1,10 @@
 package com.dinokeylas.melijoonline.contract
 
-import com.dinokeylas.melijoonline.model.Seasoning
+import com.dinokeylas.melijoonline.model.Item
 
 interface SeasoningContract {
     interface View{
-        fun onDataLoaded(seasoningList: ArrayList<Seasoning>)
+        fun onDataLoaded(itemList: ArrayList<Item>)
         fun showProgressBar()
         fun hideProgressBar()
     }

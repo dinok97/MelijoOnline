@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.HomeActivity
 import com.dinokeylas.melijoonline.R
-import com.dinokeylas.melijoonline.adapter.SeasoningAdapter
+import com.dinokeylas.melijoonline.adapter.ItemAdapter
 import com.dinokeylas.melijoonline.contract.SeasoningContract
-import com.dinokeylas.melijoonline.model.Seasoning
+import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.presenter.SeasoningPresenter
 import com.dinokeylas.melijoonline.util.GridItemDecoration
 import kotlinx.android.synthetic.main.activity_vegetable.progress_bar
@@ -34,12 +34,12 @@ class SeasoningActivity : AppCompatActivity(), SeasoningContract.View {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onDataLoaded(seasoningList: ArrayList<Seasoning>) {
+    override fun onDataLoaded(itemList: ArrayList<Item>) {
         val recyclerView: RecyclerView = findViewById(R.id.rv_seasoning)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.addItemDecoration(GridItemDecoration(10, 2))
 
-        val adapter = SeasoningAdapter(this, seasoningList)
+        val adapter = ItemAdapter(this, itemList)
         recyclerView.adapter = adapter
     }
 
