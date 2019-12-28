@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.util.GridItemDecoration
 import com.dinokeylas.melijoonline.HomeActivity
 import com.dinokeylas.melijoonline.R
-import com.dinokeylas.melijoonline.adapter.VegetableAdapter
+import com.dinokeylas.melijoonline.adapter.ItemAdapter
 import com.dinokeylas.melijoonline.contract.VegetableContract
-import com.dinokeylas.melijoonline.model.Vegetable
+import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.presenter.VegetablePresenter
 import kotlinx.android.synthetic.main.activity_vegetable.*
 import java.util.*
@@ -35,12 +35,12 @@ class VegetableActivity : AppCompatActivity(), VegetableContract.View {
 
     }
 
-    override fun onDataLoaded(vegetableList: ArrayList<Vegetable>) {
+    override fun onDataLoaded(itemList: ArrayList<Item>) {
         val recyclerView: RecyclerView = findViewById(R.id.rv_vegetable)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.addItemDecoration(GridItemDecoration(10, 2))
 
-        val adapter = VegetableAdapter(this, vegetableList)
+        val adapter = ItemAdapter(this, itemList)
         recyclerView.adapter = adapter
     }
 
