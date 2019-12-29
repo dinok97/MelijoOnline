@@ -16,7 +16,7 @@ interface Constant {
             val SEASONING = "Seasoning"
             val VEGETABLE_PACKAGE = "VegetablePackage"
             val SEAFOOD = "Seafood"
-            val MEET = "Meet"
+            val MEAT = "Meat"
             val FRUIT = "Fruit"
         }
     }
