@@ -47,16 +47,17 @@ class HomeFragment : Fragment() {
 
         val cvVegetable: CardView = view.findViewById(R.id.cv_vegetable)
         val cvSeasoning: CardView = view.findViewById(R.id.cv_seasoning)
-        val cvVegetablePack: CardView = view.findViewById(R.id.cv_vegetable_packet)
-        val cvMeet: CardView = view.findViewById(R.id.cv_chicken_meet)
-        val cvOtherMenu: CardView = view.findViewById(R.id.cv_other_menu)
+        val cvVegetablePackage: CardView = view.findViewById(R.id.cv_vegetable_packet)
+        val cvMeat: CardView = view.findViewById(R.id.cv_chicken_meet)
+        val cvFruit: CardView = view.findViewById(R.id.cv_other_menu)
         val cvSeafood: CardView = view.findViewById(R.id.cv_seafood)
+
         cvVegetable.setOnClickListener { startActivity(Intent(context, VegetableActivity::class.java)) }
         cvSeasoning.setOnClickListener { startActivity(Intent(context, SeasoningActivity::class.java)) }
-        cvVegetablePack.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
-        cvMeet.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
-        cvOtherMenu.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
-        cvSeafood.setOnClickListener { Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show() }
+        cvVegetablePackage.setOnClickListener { startActivity(Intent(context, VegetablePackageActivity::class.java)) }
+        cvSeafood.setOnClickListener { startActivity(Intent(context, SeaFoodActivity::class.java)) }
+        cvMeat.setOnClickListener { startActivity(Intent(context, MeatActivity::class.java)) }
+        cvFruit.setOnClickListener { startActivity(Intent(context, FruitActivity::class.java)) }
 
         return view
     }
