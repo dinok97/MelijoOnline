@@ -8,11 +8,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.adapter.ItemAdapter
-import com.dinokeylas.melijoonline.adapter.SeasoningAdapter
 import com.dinokeylas.melijoonline.contract.SeaFoodContract
 import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.presenter.SeaFoodPresenter
-import com.dinokeylas.melijoonline.presenter.SeasoningPresenter
 import com.dinokeylas.melijoonline.util.GridItemDecoration
 import kotlinx.android.synthetic.main.activity_sea_food.*
 import java.util.*
