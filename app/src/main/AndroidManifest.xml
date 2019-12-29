@@ -15,7 +15,10 @@
         android:roundIcon="@drawable/melijo_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeaFoodActivity"></activity>
+        <activity android:name=".VegetablePackageActivity"></activity>
+        <activity android:name=".FruitActivity" />
+        <activity android:name=".MeatActivity" />
+        <activity android:name=".SeaFoodActivity" />
         <activity android:name=".DetailItemActivity" />
         <activity android:name=".view.DetailSeasoningActivity" />
         <activity android:name=".view.SeasoningActivity" />
