@@ -9,20 +9,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.HomeActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.adapter.TrolleyAdapter
 import com.dinokeylas.melijoonline.model.Transaction
+import com.dinokeylas.melijoonline.model.TransactionBundle
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION
+import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
+import com.dinokeylas.melijoonline.util.IdGenerator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.WriteBatch
 import kotlinx.android.synthetic.main.fragment_trolley.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TrolleyFragment : Fragment() {
 
@@ -103,12 +109,15 @@ class TrolleyFragment : Fragment() {
         recyclerView.adapter = adapter
         progress_bar.visibility = View.GONE
 
+        val deliveryFee = 3000
         var total = 0
         for (tran in transactionList) {
             total += (tran.itemQty * tran.itemPrise)
         }
+        total +=deliveryFee
+
         tv_total_pay.text = String.format("Rp $total,-")
-        tv_delivery_fee.text = String.format("Rp 3000,-")
+        tv_delivery_fee.text = String.format("Rp $deliveryFee,-")
     }
 
     private fun showNoTransactionText() {
@@ -116,8 +125,51 @@ class TrolleyFragment : Fragment() {
         tv_no_transaction.visibility = View.VISIBLE
     }
 
-    private fun updateTransactionData() {
+    private fun addTransactionBundle(transactionList: ArrayList<Transaction>) {
         progress_bar.visibility = View.VISIBLE
+
+        val tranBundleCode = IdGenerator.generateId(Random())
+        val tranIdList = ArrayList<String>()
+        val itemNameList = ArrayList<String>()
+        val date = Calendar.getInstance().time
+        val userId = transactionList[0].userId
+        val userEmail = transactionList[0].userEmail
+        var totalPay = 0
+        val done = false
+        val transactionBundleProgress = "ready to deliver"
+
+        for (tran in transactionList) {
+            totalPay += (tran.itemQty * tran.itemPrise)
+        }
+        for (tran in transactionList) {
+            tranIdList.add(tran.transactionId)
+            itemNameList.add(tran.itemName)
+        }
+
+        val transactionBundle = TransactionBundle(
+            "tranBundleId",
+            tranBundleCode,
+            tranIdList,
+            userId,
+            userEmail,
+            date,
+            itemNameList,
+            totalPay,
+            done,
+            transactionBundleProgress
+        )
+
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        db.collection(TRANSACTION_BUNDLE).add(transactionBundle).addOnSuccessListener {
+            Toast.makeText(context, "berhasil diupload", Toast.LENGTH_SHORT).show()
+            /*update transaction item*/
+            updateTransactionData()
+        }.addOnFailureListener {
+            Toast.makeText(context, "gagal di upload diupload", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateTransactionData() {
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val batch = db.batch()
         for (tran in transactionList) {
@@ -140,7 +192,7 @@ class TrolleyFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Perhatian")
         builder.setMessage(message)
-        builder.setPositiveButton("Lanjutkan") { _, _ -> updateTransactionData() }
+        builder.setPositiveButton("Lanjutkan") { _, _ -> addTransactionBundle(transactionList) }
         builder.setNeutralButton("Batal") { _, _ -> }
         val dialog: AlertDialog = builder.create()
         dialog.show()

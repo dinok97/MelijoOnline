@@ -25,10 +25,14 @@ class TrolleyAdapter(private val context: Context, private val transactionList: 
     override fun getItemCount(): Int = transactionList.size
 
     override fun onBindViewHolder(holder: TrolleyViewHolder, position: Int) {
-        val itemPrise = transactionList[position].itemPrise
+        val itemPrice = transactionList[position].itemPrise
+        val itemQty = transactionList[position].itemQty
+        val totalItemPrice = itemPrice*itemQty
+        val itemQtyxPrice = String.format("$itemQty x $itemPrice")
+
         holder.tvItemName.text = transactionList[position].itemName
-        holder.tvItemQty.text = transactionList[position].itemQty.toString()
-        holder.tvItemPrise.text = String.format("Rp $itemPrise,-")
+        holder.tvItemQty.text = itemQtyxPrice
+        holder.tvItemPrise.text = String.format("Rp $totalItemPrice,-")
         Glide.with(context).load(transactionList[position].imageUrl).into(holder.ivItemImage)
     }
 
