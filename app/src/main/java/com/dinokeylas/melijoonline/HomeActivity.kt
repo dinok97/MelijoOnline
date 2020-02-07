@@ -33,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
         when(menuItem.itemId){
             R.id.navigation_home -> showFragment(HomeFragment())
             R.id.navigation_trolley -> showFragment(TrolleyFragment())
+            R.id.navigation_transaction -> showFragment(TransactionFragment())
             R.id.navigation_account -> showFragment(AccountFragment())
         }
     }
