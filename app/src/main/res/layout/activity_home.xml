@@ -23,6 +23,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimaryDark"
         android:backgroundTint="@color/colorWhite"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu"/>
 
 </RelativeLayout>

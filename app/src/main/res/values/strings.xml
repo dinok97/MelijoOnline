@@ -70,4 +70,12 @@
     <string name="detail">Detail</string>
     <string name="right">right</string>
     <string name="transaksi">Transaksi</string>
+    <string name="item">Item:</string>
+    <string name="nama_item">Nama Item</string>
+    <string name="tidak_ada_transaksi">Tidak Ada Transaksi</string>
+    <string name="hapus">Hapus</string>
+    <string-array name="transaction_progress">
+        <item>Sedang Diproses</item>
+        <item>Riwayat</item>
+    </string-array>
 </resources>

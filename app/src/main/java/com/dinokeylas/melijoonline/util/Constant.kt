@@ -6,7 +6,9 @@ interface Constant {
         companion object{
             val USER = "user"
             val TRANSACTION = "transaction"
+            val TRANSACTION_BUNDLE = "transactionBundle"
             val ITEM = "item"
+            val DATE_FORMAT = "dd/MM/yyyy"
         }
     }
 

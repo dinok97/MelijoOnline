@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.dinokeylas.melijoonline.model.Transaction
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant
+import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION
+import com.dinokeylas.melijoonline.util.IdGenerator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detail_item.*
@@ -69,7 +71,7 @@ class DetailItemActivity : AppCompatActivity() {
         }
 
         btn_add_to_bucket.setOnClickListener {
-            val transactionCode = generateString(Random())
+            val transactionCode = IdGenerator.generateId(Random())
             val date = Calendar.getInstance().time
             val transaction = Transaction(
                 "tranId", transactionCode, userId!!, user.email, date,
@@ -89,7 +91,7 @@ class DetailItemActivity : AppCompatActivity() {
     }
 
     private fun showInformationDialog(transaction: Transaction) {
-        val message = "Detail Item\n\n" +
+        val message = "\n" +
                 "Nama: ${transaction.itemName}\n" +
                 "Jumlah: ${transaction.itemQty}\n" +
                 "Total Bayar: Rp ${transaction.totalPay},-\n\n" +
@@ -117,25 +119,14 @@ class DetailItemActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun generateString(random: Random): String {
-        val characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
-        val text = CharArray(6)
-        for (i in 0 until 6) {
-            text[i] = characters[random.nextInt(characters.length)]
-        }
-        return String(text)
-    }
-
     private fun uploadTransactionData(transaction: Transaction) {
         val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(Constant.Collection.TRANSACTION).add(transaction)
-            .addOnSuccessListener {
-                progress_bar.visibility = View.GONE
-                showInformationDialog()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "Gagal memproses transaksi anda", Toast.LENGTH_SHORT).show()
-            }
+        fireStore.collection(TRANSACTION).add(transaction).addOnSuccessListener {
+            progress_bar.visibility = View.GONE
+            showInformationDialog()
+        }.addOnFailureListener {
+            Toast.makeText(this, "Gagal memproses transaksi anda", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun isValidData(transaction: Transaction): Boolean {
