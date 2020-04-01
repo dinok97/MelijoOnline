@@ -2,10 +2,10 @@ package com.dinokeylas.melijoonline.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.dinokeylas.melijoonline.EditProfileActivity
 import com.dinokeylas.melijoonline.R
@@ -51,7 +51,9 @@ class AccountFragment : Fragment(), AccountContract.View {
     }
 
     override fun navigateToLogin() {
-        startActivity(Intent(context, LoginActivity::class.java))
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     override fun showProgressBar() {
