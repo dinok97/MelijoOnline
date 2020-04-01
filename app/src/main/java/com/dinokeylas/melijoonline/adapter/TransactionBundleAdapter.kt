@@ -33,9 +33,9 @@ class TransactionBundleAdapter(private val context: Context, private val tranBun
         val totalPay = tranBundleList[position].totalPay
         val itemNameList = tranBundleList[position].itemNameList
         var itemNames = ""
-        for(iName in itemNameList){ itemNames += iName }
+        for(iName in itemNameList){ itemNames += "$iName, " }
 
-        holder.tvItemName.text = itemNames
+        holder.tvItemName.text = itemNames.dropLast(2)
         holder.tvDate.text = date
         holder.tvTotalPrice.text = String.format("Rp $totalPay")
     }
