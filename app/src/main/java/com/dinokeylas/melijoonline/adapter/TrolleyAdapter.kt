@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,11 @@ import com.bumptech.glide.Glide
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.model.Transaction
 
-class TrolleyAdapter(private val context: Context, private val transactionList: ArrayList<Transaction>):
+class TrolleyAdapter(
+    private val context: Context,
+    private val transactionList: ArrayList<Transaction>,
+    private val itemClickListener: (Transaction) -> Unit
+) :
     RecyclerView.Adapter<TrolleyAdapter.TrolleyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrolleyViewHolder {
@@ -25,21 +30,33 @@ class TrolleyAdapter(private val context: Context, private val transactionList: 
     override fun getItemCount(): Int = transactionList.size
 
     override fun onBindViewHolder(holder: TrolleyViewHolder, position: Int) {
-        val itemPrice = transactionList[position].itemPrise
-        val itemQty = transactionList[position].itemQty
-        val totalItemPrice = itemPrice*itemQty
-        val itemQtyxPrice = String.format("$itemQty x $itemPrice")
-
-        holder.tvItemName.text = transactionList[position].itemName
-        holder.tvItemQty.text = itemQtyxPrice
-        holder.tvItemPrise.text = String.format("Rp $totalItemPrice,-")
-        Glide.with(context).load(transactionList[position].imageUrl).into(holder.ivItemImage)
+        holder.bind(transactionList[position], itemClickListener, context)
     }
 
-    class TrolleyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class TrolleyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvItemName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvItemQty: TextView = itemView.findViewById(R.id.tv_item_qty)
         var tvItemPrise: TextView = itemView.findViewById(R.id.tv_item_prise)
         var ivItemImage: ImageView = itemView.findViewById(R.id.iv_item_image)
+        var btnDeleteItem: Button = itemView.findViewById(R.id.btn_delete)
+
+        fun bind(
+            tranItem: Transaction,
+            itemClickListener: (Transaction) -> Unit,
+            context: Context
+        ) {
+            val itemPrice = tranItem.itemPrise
+            val itemQty = tranItem.itemQty
+            val totalItemPrice = itemPrice * itemQty
+            val itemQtyxPrice = String.format("$itemQty x $itemPrice")
+
+            tvItemName.text = tranItem.itemName
+            tvItemQty.text = itemQtyxPrice
+            tvItemPrise.text = String.format("Rp $totalItemPrice,-")
+            Glide.with(context).load(tranItem.imageUrl).into(ivItemImage)
+            btnDeleteItem.setOnClickListener {
+                itemClickListener(tranItem)
+            }
+        }
     }
 }

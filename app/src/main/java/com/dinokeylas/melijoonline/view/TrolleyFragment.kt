@@ -104,8 +104,21 @@ class TrolleyFragment : Fragment() {
             }
     }
 
+    private fun deleteTransactionData(tranItem: Transaction){
+        progress_bar.visibility = View.VISIBLE
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        db.collection(TRANSACTION).document(tranItem.transactionId).delete().addOnSuccessListener {
+            transactionList.remove(tranItem)
+            adapter.notifyDataSetChanged()
+            progress_bar.visibility = View.GONE
+        }.addOnFailureListener {
+            Log.d("FIREBASE-DELETE", "un successful delete")
+            progress_bar.visibility = View.GONE
+        }
+    }
+
     private fun showTranData(transactionList: ArrayList<Transaction>) {
-        adapter = TrolleyAdapter(context!!, transactionList)
+        adapter = TrolleyAdapter(context!!, transactionList) { tranItem : Transaction -> deleteItemClicked(tranItem) }
         recyclerView.adapter = adapter
         progress_bar.visibility = View.GONE
 
@@ -118,6 +131,18 @@ class TrolleyFragment : Fragment() {
 
         tv_total_pay.text = String.format("Rp $total,-")
         tv_delivery_fee.text = String.format("Rp $deliveryFee,-")
+    }
+
+    private fun deleteItemClicked(tranItem : Transaction) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Perhatian")
+        builder.setMessage("Apakah Anda yakin ingin menghapus item ini?")
+        builder.setPositiveButton("Oke") { _, _ ->
+            deleteTransactionData(tranItem)
+        }
+        builder.setNeutralButton("Batal") { _, _ -> }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     private fun showNoTransactionText() {
