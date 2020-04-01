@@ -26,7 +26,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private val CHOOSE_IMAGE = 101
     private var uriProfileImage: Uri? = null
-    private lateinit var profileImageUrl: String
+    private var profileImageUrl = "default profile image url"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,9 +83,10 @@ class EditProfileActivity : AppCompatActivity() {
         tv_email_address.text = user?.email
         et_phone_number.setText(user?.phoneNumber)
         et_address.setText(user?.address)
-        if (user?.profileImageUrl != null) {
+        if (user?.profileImageUrl != "default profile image url") {
+            profileImageUrl = user?.profileImageUrl ?: "default profile image url"
             Glide.with(this)
-                .load(user.profileImageUrl)
+                .load(user?.profileImageUrl)
                 .into(civ_profile_image)
         }
     }
@@ -97,7 +98,9 @@ class EditProfileActivity : AppCompatActivity() {
         ref.update("userName", et_user_name.text.toString().trim())
         ref.update("fullName", et_full_name.text.toString().trim())
         ref.update("address", et_address.text.toString().trim())
-        ref.update("profileImageUrl", profileImageUrl)
+        if (profileImageUrl != "default profile image url") {
+            ref.update("profileImageUrl", profileImageUrl)
+        }
         ref.update("phoneNumber", et_phone_number.text.toString().trim())
             .addOnSuccessListener {
                 progress_bar.visibility = View.GONE
