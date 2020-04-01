@@ -14,7 +14,6 @@ import com.dinokeylas.melijoonline.model.TransactionBundle
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_transaction.*
 
 class TransactionFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
