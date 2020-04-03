@@ -21,6 +21,7 @@ import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
+import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.UN_PROCESSED
 import com.dinokeylas.melijoonline.util.IdGenerator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -161,7 +162,6 @@ class TrolleyFragment : Fragment() {
         val userEmail = transactionList[0].userEmail
         var totalPay = 0
         val done = false
-        val transactionBundleProgress = "ready to deliver"
 
         for (tran in transactionList) {
             totalPay += (tran.itemQty * tran.itemPrise)
@@ -181,7 +181,7 @@ class TrolleyFragment : Fragment() {
             itemNameList,
             totalPay,
             done,
-            transactionBundleProgress
+            UN_PROCESSED
         )
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()

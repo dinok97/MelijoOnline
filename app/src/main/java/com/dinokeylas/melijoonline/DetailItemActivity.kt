@@ -12,6 +12,7 @@ import com.dinokeylas.melijoonline.model.Transaction
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION
+import com.dinokeylas.melijoonline.util.Constant.TransactionProgress.Companion.IN_TROLLEY
 import com.dinokeylas.melijoonline.util.IdGenerator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -76,7 +77,7 @@ class DetailItemActivity : AppCompatActivity() {
             val transaction = Transaction(
                 "tranId", transactionCode, userId!!, user.email, date,
                 itemName, itemPrice, imageUrl, user.address, quantity, totalPay, sellerName,
-                false, "inTrolley"
+                false, IN_TROLLEY
             )
             if (isValidData(transaction)) {
                 showInformationDialog(transaction)
