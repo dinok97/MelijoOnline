@@ -23,4 +23,20 @@ interface Constant {
         }
     }
 
+    interface TransactionBundleProgress {
+        companion object{
+            val UN_PROCESSED = "un_processed"
+            val IN_PROCESSED = "in_processed"
+            val DONE = "done"
+        }
+    }
+
+    interface TransactionProgress {
+        companion object{
+            val IN_TROLLEY = "in_trolley"
+            val ORDERED = "ordered"
+            val DONE = "done"
+        }
+    }
+
 }
