@@ -38,7 +38,7 @@ class TrolleyAdapter(
         var tvItemQty: TextView = itemView.findViewById(R.id.tv_item_qty)
         var tvItemPrise: TextView = itemView.findViewById(R.id.tv_item_prise)
         var ivItemImage: ImageView = itemView.findViewById(R.id.iv_item_image)
-        var btnDeleteItem: Button = itemView.findViewById(R.id.btn_delete)
+        var btnDeleteItem: ImageView = itemView.findViewById(R.id.btn_delete)
 
         fun bind(
             tranItem: Transaction,
