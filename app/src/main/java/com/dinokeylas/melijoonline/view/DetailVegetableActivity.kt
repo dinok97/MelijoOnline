@@ -16,8 +16,6 @@ import com.dinokeylas.melijoonline.util.Constant
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detail_vegetable.*
-import kotlinx.android.synthetic.main.layout_vegetable_item.tv_vegetable_name
-import kotlinx.android.synthetic.main.layout_vegetable_item.tv_vegetable_price
 import java.util.*
 
 class DetailVegetableActivity : AppCompatActivity() {
