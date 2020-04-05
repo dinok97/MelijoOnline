@@ -36,19 +36,16 @@
         app:layout_constraintStart_toEndOf="@+id/iv_item_image"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_name" />
 
-    <Button
+    <ImageView
         android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="@string/hapus"
-        android:textSize="12sp"
-        android:fontFamily="@font/roboto_regular"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/colorWhite"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/hapus"
+        android:src="@drawable/ic_delete_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_item_prise"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_item_prise"
