@@ -18,9 +18,8 @@ class MeatPresenter(_view: MeatContract.View): MeatContract.Presenter {
     override fun loadMeatData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection(ITEM).whereEqualTo("category",MEAT).get()
-            .addOnSuccessListener { documents ->
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("category",MEAT)
+            .whereEqualTo("isAvailable", true).get().addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)
                     itemList.add(itemSell!!)
@@ -28,8 +27,6 @@ class MeatPresenter(_view: MeatContract.View): MeatContract.Presenter {
                 }
                 view.onDataLoaded(itemList)
                 view.hideProgressBar()
-            }.addOnFailureListener {
-                Log.d("LOG", "data gagal diambil")
-            }
+            }.addOnFailureListener { Log.d("LOG", "data gagal diambil") }
     }
 }

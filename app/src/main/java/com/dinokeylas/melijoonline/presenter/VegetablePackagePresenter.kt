@@ -18,8 +18,8 @@ class VegetablePackagePresenter(_view: VegetablePackageContract.View): Vegetable
     override fun loadVegetablePackageData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection(ITEM).whereEqualTo("category", VEGETABLE_PACKAGE).get()
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+            .whereEqualTo("category", VEGETABLE_PACKAGE).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)
@@ -28,8 +28,7 @@ class VegetablePackagePresenter(_view: VegetablePackageContract.View): Vegetable
                 }
                 view.onDataLoaded(itemList)
                 view.hideProgressBar()
-            }.addOnFailureListener {
-                Log.d("LOG", "data gagal diambil")
             }
+            .addOnFailureListener { Log.d("LOG", "data gagal diambil") }
     }
 }

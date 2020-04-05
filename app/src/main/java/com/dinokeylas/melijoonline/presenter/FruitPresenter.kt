@@ -18,9 +18,8 @@ class FruitPresenter(_view: FruitContract.View): FruitContract.Presenter {
     override fun loadFruitData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection(ITEM).whereEqualTo("category", FRUIT).get()
-            .addOnSuccessListener { documents ->
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("category", FRUIT)
+            .whereEqualTo("isAvailable", true).get().addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)
                     itemList.add(itemSell!!)
@@ -28,8 +27,6 @@ class FruitPresenter(_view: FruitContract.View): FruitContract.Presenter {
                 }
                 view.onDataLoaded(itemList)
                 view.hideProgressBar()
-            }.addOnFailureListener {
-                Log.d("LOG", "data gagal diambil")
-            }
+            }.addOnFailureListener { Log.d("LOG", "data gagal diambil") }
     }
 }

@@ -5,6 +5,7 @@ import com.dinokeylas.melijoonline.contract.SeasoningContract
 import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Category.Companion.SEASONING
+import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.ITEM
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SeasoningPresenter(_view: SeasoningContract.View) : SeasoningContract.Presenter {
@@ -18,9 +19,8 @@ class SeasoningPresenter(_view: SeasoningContract.View) : SeasoningContract.Pres
     override fun loadSeasoningData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection(Constant.Collection.ITEM).whereEqualTo("category", SEASONING)
-            .get()
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+            .whereEqualTo("category", SEASONING).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)
@@ -29,8 +29,7 @@ class SeasoningPresenter(_view: SeasoningContract.View) : SeasoningContract.Pres
                 }
                 view.onDataLoaded(itemList)
                 view.hideProgressBar()
-            }.addOnFailureListener {
-                Log.d("LOG", "data gagal diambil")
             }
+            .addOnFailureListener { Log.d("LOG", "data gagal diambil") }
     }
 }

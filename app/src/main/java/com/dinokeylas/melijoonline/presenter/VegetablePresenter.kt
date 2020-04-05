@@ -5,6 +5,7 @@ import com.dinokeylas.melijoonline.contract.VegetableContract
 import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Category.Companion.VEGETABLE
+import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.ITEM
 import com.google.firebase.firestore.FirebaseFirestore
 
 class VegetablePresenter(_view: VegetableContract.View): VegetableContract.Presenter {
@@ -18,8 +19,8 @@ class VegetablePresenter(_view: VegetableContract.View): VegetableContract.Prese
     override fun loadVegetableData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection(Constant.Collection.ITEM).whereEqualTo("category", VEGETABLE).get()
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+            .whereEqualTo("category", VEGETABLE).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)
@@ -28,8 +29,7 @@ class VegetablePresenter(_view: VegetableContract.View): VegetableContract.Prese
                 }
                 view.onDataLoaded(itemList)
                 view.hideProgressBar()
-            }.addOnFailureListener {
-                Log.d("LOG", "data gagal diambil")
             }
+            .addOnFailureListener { Log.d("LOG", "data gagal diambil") }
     }
 }
