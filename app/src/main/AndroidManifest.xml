@@ -20,10 +20,8 @@
         <activity android:name=".MeatActivity" />
         <activity android:name=".SeaFoodActivity" />
         <activity android:name=".DetailItemActivity" />
-        <activity android:name=".view.DetailSeasoningActivity" />
         <activity android:name=".view.SeasoningActivity" />
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".view.DetailVegetableActivity" />
         <activity android:name=".view.VegetableActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
