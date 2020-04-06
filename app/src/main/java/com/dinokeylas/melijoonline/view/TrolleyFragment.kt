@@ -22,6 +22,7 @@ import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
 import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.UN_PROCESSED
+import com.dinokeylas.melijoonline.util.Constant.TransactionProgress.Companion.IN_TROLLEY
 import com.dinokeylas.melijoonline.util.IdGenerator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -89,7 +90,7 @@ class TrolleyFragment : Fragment() {
         transactionList = ArrayList()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         db.collection(TRANSACTION).whereEqualTo(USER_EMAIL, user.email)
-            .whereEqualTo(TRANSACTION_PROGRESS, "inTrolley").get()
+            .whereEqualTo(TRANSACTION_PROGRESS, IN_TROLLEY).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val transaction: Transaction = document.toObject(Transaction::class.java)
