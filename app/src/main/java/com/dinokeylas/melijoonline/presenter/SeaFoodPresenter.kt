@@ -6,6 +6,7 @@ import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Category.Companion.SEAFOOD
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.ITEM
+import com.dinokeylas.melijoonline.util.Constant.Field.Companion.IS_AVAILABLE
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SeaFoodPresenter(_view: SeaFoodContract.View) : SeaFoodContract.Presenter {
@@ -19,7 +20,7 @@ class SeaFoodPresenter(_view: SeaFoodContract.View) : SeaFoodContract.Presenter 
     override fun loadSeaFoodData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo(IS_AVAILABLE, true)
             .whereEqualTo("category", SEAFOOD).get().addOnSuccessListener { documents ->
                 for (document in documents) {
                     val itemSell: Item? = document.toObject(Item::class.java)

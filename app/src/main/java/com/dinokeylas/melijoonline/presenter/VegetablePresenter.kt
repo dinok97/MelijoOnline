@@ -3,9 +3,9 @@ package com.dinokeylas.melijoonline.presenter
 import android.util.Log
 import com.dinokeylas.melijoonline.contract.VegetableContract
 import com.dinokeylas.melijoonline.model.Item
-import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Category.Companion.VEGETABLE
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.ITEM
+import com.dinokeylas.melijoonline.util.Constant.Field.Companion.IS_AVAILABLE
 import com.google.firebase.firestore.FirebaseFirestore
 
 class VegetablePresenter(_view: VegetableContract.View): VegetableContract.Presenter {
@@ -19,7 +19,7 @@ class VegetablePresenter(_view: VegetableContract.View): VegetableContract.Prese
     override fun loadVegetableData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo(IS_AVAILABLE, true)
             .whereEqualTo("category", VEGETABLE).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {

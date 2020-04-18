@@ -6,6 +6,7 @@ import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.util.Constant
 import com.dinokeylas.melijoonline.util.Constant.Category.Companion.SEASONING
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.ITEM
+import com.dinokeylas.melijoonline.util.Constant.Field.Companion.IS_AVAILABLE
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SeasoningPresenter(_view: SeasoningContract.View) : SeasoningContract.Presenter {
@@ -19,7 +20,7 @@ class SeasoningPresenter(_view: SeasoningContract.View) : SeasoningContract.Pres
     override fun loadSeasoningData() {
         view.showProgressBar()
         val itemList = ArrayList<Item>()
-        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo("isAvailable", true)
+        FirebaseFirestore.getInstance().collection(ITEM).whereEqualTo(IS_AVAILABLE, true)
             .whereEqualTo("category", SEASONING).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {

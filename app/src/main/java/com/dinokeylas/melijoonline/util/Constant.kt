@@ -13,6 +13,12 @@ interface Constant {
         }
     }
 
+    interface Field {
+        companion object{
+            val IS_AVAILABLE = "available"
+        }
+    }
+
     interface Category {
         companion object{
             val VEGETABLE = "Vegetable"

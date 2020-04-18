@@ -12,7 +12,7 @@ data class Item (
     val description: String = "",
     val createAt: Date = Calendar.getInstance().time,
     val updateAt: Date = Calendar.getInstance().time,
-    val isAvailable: Boolean = false,
+    val available: Boolean = false,
     val discount: Int = 0,
     val sellerName: String = "",
     val imageUrl: String = ""
