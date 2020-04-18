@@ -8,6 +8,7 @@ interface Constant {
             val TRANSACTION = "transaction"
             val TRANSACTION_BUNDLE = "transactionBundle"
             val ITEM = "item"
+            val BANNER_IMAGES = "bannerImages"
             val DATE_FORMAT = "dd/MM/yyyy"
         }
     }
