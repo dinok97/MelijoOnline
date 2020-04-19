@@ -113,6 +113,8 @@ class TrolleyFragment : Fragment() {
             transactionList.remove(tranItem)
             adapter.notifyDataSetChanged()
             progress_bar.visibility = View.GONE
+            if (transactionList.size > 0) showTranData(transactionList)
+            else showNoTransactionText()
         }.addOnFailureListener {
             Log.d("FIREBASE-DELETE", "un successful delete")
             progress_bar.visibility = View.GONE
@@ -120,6 +122,7 @@ class TrolleyFragment : Fragment() {
     }
 
     private fun showTranData(transactionList: ArrayList<Transaction>) {
+        showDetailPay()
         adapter = TrolleyAdapter(context!!, transactionList) { tranItem : Transaction -> deleteItemClicked(tranItem) }
         recyclerView.adapter = adapter
         progress_bar.visibility = View.GONE
@@ -150,6 +153,7 @@ class TrolleyFragment : Fragment() {
     private fun showNoTransactionText() {
         progress_bar.visibility = View.GONE
         tv_no_transaction.visibility = View.VISIBLE
+        hideDetailPay()
     }
 
     private fun addTransactionBundle(transactionList: ArrayList<Transaction>) {
@@ -234,6 +238,20 @@ class TrolleyFragment : Fragment() {
         builder.setNeutralButton("Batal") { _, _ -> }
         val dialog: AlertDialog = builder.create()
         dialog.show()
+    }
+
+    private fun showDetailPay(){
+        tv_delivery_fee.visibility = View.VISIBLE
+        tv_total_pay.visibility = View.VISIBLE
+        textView9.visibility = View.VISIBLE
+        textView10.visibility = View.VISIBLE
+    }
+
+    private fun hideDetailPay(){
+        tv_delivery_fee.visibility = View.GONE
+        tv_total_pay.visibility = View.GONE
+        textView9.visibility = View.GONE
+        textView10.visibility = View.GONE
     }
 
     companion object {

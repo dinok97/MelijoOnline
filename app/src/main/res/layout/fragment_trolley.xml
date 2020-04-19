@@ -36,9 +36,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:textSize="13sp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="@string/user_name" />
+                android:text="@string/user_name"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_phone_number"
@@ -46,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:textSize="13sp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="@string/phone_number" />
+                android:text="@string/phone_number"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_address"
@@ -57,9 +57,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:textSize="13sp"
                 android:fontFamily="@font/roboto_regular"
-                android:text="@string/alamat" />
+                android:text="@string/alamat"
+                android:textSize="13sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -77,36 +77,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ProgressBar
-                    android:id="@+id/progress_bar"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:indeterminateTint="@color/colorPrimary"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/rv_transaction_item" />
-
-                <TextView
-                    android:id="@+id/tv_no_transaction"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="50dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/tidak_ada_item_yang_dipesan_saat_ini"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/rv_transaction_item" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_transaction_item"
                     android:layout_width="match_parent"
@@ -123,6 +93,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/biaya_pengiriman"
                     android:textSize="15sp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rv_transaction_item" />
 
@@ -135,6 +106,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/rp_0"
                     android:textSize="15sp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rv_transaction_item" />
 
@@ -147,6 +119,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/total"
                     android:textSize="15sp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_delivery_fee" />
 
@@ -158,18 +131,41 @@
                     android:layout_marginEnd="20dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/rp_0"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_delivery_fee" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_no_transaction"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/tidak_ada_item_yang_dipesan_saat_ini"
+            android:visibility="gone" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            app:cardElevation="20dp"
-            android:elevation="20dp">
+            android:elevation="20dp"
+            app:cardElevation="20dp">
 
             <Button
                 android:id="@+id/btn_make_request"
