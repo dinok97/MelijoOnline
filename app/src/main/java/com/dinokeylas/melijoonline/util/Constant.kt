@@ -16,6 +16,8 @@ interface Constant {
     interface Field {
         companion object{
             val IS_AVAILABLE = "available"
+            val DATE = "date"
+            val USER_ID = "userId"
         }
     }
 

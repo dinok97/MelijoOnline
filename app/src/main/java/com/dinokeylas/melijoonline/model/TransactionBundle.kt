@@ -12,7 +12,8 @@ data class TransactionBundle (
     var userEmail: String = "",
     var date: Date = Calendar.getInstance().time,
     var itemNameList: ArrayList<String> = ArrayList(),
-    var totalPay: Int = 0,
+    var totalPrice: Int = 0,
+    var deliveryFee: Int = 0,
     var done: Boolean = false,
     var transactionBundleProgress: String = ""
 

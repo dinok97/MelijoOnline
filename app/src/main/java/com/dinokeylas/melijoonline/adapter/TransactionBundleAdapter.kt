@@ -30,7 +30,7 @@ class TransactionBundleAdapter(private val context: Context, private val tranBun
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val simpleDateFormat = SimpleDateFormat(DATE_FORMAT)
         val date = simpleDateFormat.format(tranBundleList[position].date)
-        val totalPay = tranBundleList[position].totalPay
+        val totalPay = tranBundleList[position].totalPrice + tranBundleList[position].deliveryFee
         val itemNameList = tranBundleList[position].itemNameList
         var itemNames = ""
         for(iName in itemNameList){ itemNames += "$iName, " }
