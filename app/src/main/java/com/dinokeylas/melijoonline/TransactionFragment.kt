@@ -12,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.adapter.TransactionBundleAdapter
 import com.dinokeylas.melijoonline.model.TransactionBundle
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
+import com.dinokeylas.melijoonline.util.Constant.Field.Companion.DATE
+import com.dinokeylas.melijoonline.util.Constant.Field.Companion.USER_ID
 import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.IN_PROCESSED
 import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.UN_PROCESSED
+import com.dinokeylas.melijoonline.util.TransactionSorter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -63,16 +66,14 @@ class TransactionFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun getTransactionBundleData(userId: String?) {
         val db = FirebaseFirestore.getInstance()
-        db.collection(TRANSACTION_BUNDLE).whereEqualTo("userId", userId).get()
+        db.collection(TRANSACTION_BUNDLE).whereEqualTo(USER_ID, userId).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    val tranBundle: TransactionBundle = document.toObject(TransactionBundle::class.java)
+                    val tranBundle: TransactionBundle =
+                        document.toObject(TransactionBundle::class.java)
                     tranBundle.tranBundleId = document.id
                     transactionBundleList.add(tranBundle)
-                    Log.d("DATA", tranBundle.toString())
                 }
-//                if (transactionList.size > 0) showTranData(transactionList)
-//                else showNoTransactionText()
                 progressBar.visibility = View.GONE
                 divideList(transactionBundleList)
             }.addOnFailureListener {
@@ -96,19 +97,18 @@ class TransactionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val item = adapterView?.getItemAtPosition(position).toString()
 
         if (item == SEDANG_DIPROSES) {
-//            if(transactionDeliveryList.isEmpty()) tvNoTransaction.visibility = View.VISIBLE
             setAdapter(transactionDeliveryList)
         }
         if (item == RIWAYAT) {
-//            if(transactionHistoryList.isEmpty()) tvNoTransaction.visibility = View.VISIBLE
             setAdapter(transactionHistoryList)
         }
     }
 
     private fun setAdapter(tranBundleList: ArrayList<TransactionBundle>) {
-        if(tranBundleList.isEmpty()) tvNoTransaction.visibility = View.VISIBLE
+        if (tranBundleList.isEmpty()) tvNoTransaction.visibility = View.VISIBLE
         else tvNoTransaction.visibility = View.GONE
-        val transactionBundleAdapter = TransactionBundleAdapter(context!!, tranBundleList)
+        val transactionBundleAdapter = TransactionBundleAdapter(context!!,
+            TransactionSorter.sort(tranBundleList))
         recyclerView.adapter = transactionBundleAdapter
     }
 

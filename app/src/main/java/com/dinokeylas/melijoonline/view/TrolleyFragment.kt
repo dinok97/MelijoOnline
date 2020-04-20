@@ -36,6 +36,7 @@ class TrolleyFragment : Fragment() {
 
     private val TRANSACTION_PROGRESS = "transactionProgress"
     private val USER_EMAIL = "userEmail"
+    private val deliveryFeeEst = 3000
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TrolleyAdapter
@@ -127,15 +128,14 @@ class TrolleyFragment : Fragment() {
         recyclerView.adapter = adapter
         progress_bar.visibility = View.GONE
 
-        val deliveryFee = 3000
         var total = 0
         for (tran in transactionList) {
             total += (tran.itemQty * tran.itemPrise)
         }
-        total +=deliveryFee
+        total += deliveryFeeEst
 
         tv_total_pay.text = String.format("Rp $total,-")
-        tv_delivery_fee.text = String.format("Rp $deliveryFee,-")
+        tv_delivery_fee.text = String.format("Rp $deliveryFeeEst,-")
     }
 
     private fun deleteItemClicked(tranItem : Transaction) {
@@ -165,11 +165,11 @@ class TrolleyFragment : Fragment() {
         val date = Calendar.getInstance().time
         val userId = transactionList[0].userId
         val userEmail = transactionList[0].userEmail
-        var totalPay = 0
+        var totalPrice = 0
         val done = false
 
         for (tran in transactionList) {
-            totalPay += (tran.itemQty * tran.itemPrise)
+            totalPrice += (tran.itemQty * tran.itemPrise)
         }
         for (tran in transactionList) {
             tranIdList.add(tran.transactionId)
@@ -184,7 +184,8 @@ class TrolleyFragment : Fragment() {
             userEmail,
             date,
             itemNameList,
-            totalPay,
+            totalPrice,
+            deliveryFeeEst,
             done,
             UN_PROCESSED
         )
