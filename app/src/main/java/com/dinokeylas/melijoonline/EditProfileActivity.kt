@@ -25,7 +25,8 @@ import java.io.IOException
 class EditProfileActivity : AppCompatActivity() {
 
     private val CHOOSE_IMAGE = 101
-    private var uriProfileImage: Uri? = null
+//    private var uriProfileImage: Uri? = null
+    private var oldProfileImageUrl = "default profile image url"
     private var profileImageUrl = "default profile image url"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,6 +86,7 @@ class EditProfileActivity : AppCompatActivity() {
         et_address.setText(user?.address)
         if (user?.profileImageUrl != "default profile image url") {
             profileImageUrl = user?.profileImageUrl ?: "default profile image url"
+            oldProfileImageUrl = user?.profileImageUrl ?: "default profile image url"
             Glide.with(this)
                 .load(user?.profileImageUrl)
                 .into(civ_profile_image)
@@ -111,27 +113,12 @@ class EditProfileActivity : AppCompatActivity() {
             }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CHOOSE_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            uriProfileImage = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uriProfileImage)
-                civ_profile_image.setImageBitmap(bitmap)
-                uploadImage()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadImage() {
+    private fun uploadImage(uriProfileImage: Uri?) {
+        progress_bar.visibility = View.VISIBLE
         val mStorageRef = FirebaseStorage.getInstance()
             .getReference("profileImage/" + System.currentTimeMillis() + ".jpg")
-        progress_bar.visibility = View.VISIBLE
 
         val uploadTask = mStorageRef.putFile(uriProfileImage!!)
-
         uploadTask.continueWithTask { task ->
             if (!task.isSuccessful) {
                 throw task.exception!!
@@ -139,11 +126,33 @@ class EditProfileActivity : AppCompatActivity() {
             mStorageRef.downloadUrl
         }.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                progress_bar.visibility = View.GONE
                 val downloadUri = task.result
                 profileImageUrl = downloadUri!!.toString()
+                deleteOldImage(oldProfileImageUrl)
             } else {
+                progress_bar.visibility = View.GONE
                 Toast.makeText(this, "Gagal Update Profile", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun deleteOldImage(oldProfileImgUrl: String){
+        FirebaseStorage.getInstance().getReferenceFromUrl(oldProfileImgUrl).delete().addOnSuccessListener {
+            progress_bar.visibility = View.GONE
+            oldProfileImageUrl = profileImageUrl
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CHOOSE_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+            val uriProfileImage = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uriProfileImage)
+                civ_profile_image.setImageBitmap(bitmap)
+                uploadImage(uriProfileImage)
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
         }
     }
