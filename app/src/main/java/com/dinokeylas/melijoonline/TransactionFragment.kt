@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dinokeylas.melijoonline.adapter.TransactionBundleAdapter
 import com.dinokeylas.melijoonline.model.TransactionBundle
 import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.TRANSACTION_BUNDLE
-import com.dinokeylas.melijoonline.util.Constant.Field.Companion.DATE
 import com.dinokeylas.melijoonline.util.Constant.Field.Companion.USER_ID
 import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.IN_PROCESSED
 import com.dinokeylas.melijoonline.util.Constant.TransactionBundleProgress.Companion.UN_PROCESSED

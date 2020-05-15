@@ -25,7 +25,6 @@ import java.io.IOException
 class EditProfileActivity : AppCompatActivity() {
 
     private val CHOOSE_IMAGE = 101
-//    private var uriProfileImage: Uri? = null
     private var oldProfileImageUrl = "default profile image url"
     private var profileImageUrl = "default profile image url"
 
