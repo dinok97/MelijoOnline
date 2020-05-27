@@ -54,6 +54,38 @@
             android:text="@string/vegetable_description"
             android:layout_marginStart="20dp"/>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:padding="3dp"
+                android:text="@string/default_discount"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/bg_round_grey"
+                android:fontFamily="@font/roboto_regular"/>
+
+            <TextView
+                android:id="@+id/tv_item_price_streak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/default_price"
+                android:background="@drawable/strikethrough_layerlist"
+                android:fontFamily="@font/roboto_regular"/>
+
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/tv_item_price"
             android:layout_width="wrap_content"

@@ -43,28 +43,39 @@ class DetailItemActivity : AppCompatActivity() {
 
         val itemName = intent.getStringExtra("itemName")
         val itemPrice = intent.getIntExtra("itemPrice", 0)
-        val itemStringPrice = "Rp $totalPay,-"
         val itemDesc = intent.getStringExtra("itemDesc")
         val sellerName = intent.getStringExtra("sellerName")
+        val unitSale = intent.getStringExtra("unitSale")
+        val discount = intent.getIntExtra("discount", 0)
         val imageUrl = intent.getStringExtra("imageUrl")
+        val actualPrice = itemPrice - (itemPrice.toDouble() / 100)
 
         tv_item_name.text = itemName
-        tv_item_price.text = String.format("Rp $itemPrice,-")
         tv_item_desc.text = itemDesc
         tv_quantity.text = quantity.toString()
-        tv_total_pay.text = itemStringPrice
+        tv_total_pay.text = String.format("Rp $totalPay,-")
         Glide.with(this).load(imageUrl).into(iv_detail_item)
 
+        if (discount != 0) {
+            tv_item_price.text = String.format("Rp ${actualPrice.toInt()} / $unitSale")
+            tv_discount.text = String.format("$discount%%")
+            tv_item_price_streak.text = String.format("Rp $itemPrice")
+        } else {
+            tv_item_price_streak.visibility = View.GONE
+            tv_discount.visibility = View.GONE
+            tv_item_price.text = String.format("Rp $itemPrice / $unitSale")
+        }
+
         btn_plus.setOnClickListener {
-            totalPay = (++quantity) * itemPrice
-            tv_total_pay.text = totalPay.toString()
+            totalPay = (++quantity) * actualPrice.toInt()
+            tv_total_pay.text = String.format("Rp $totalPay")
             tv_quantity.text = quantity.toString()
         }
 
         btn_minus.setOnClickListener {
             if ((quantity - 1) >= 0) {
-                totalPay = (--quantity) * itemPrice
-                tv_total_pay.text = totalPay.toString()
+                totalPay = (--quantity) * actualPrice.toInt()
+                tv_total_pay.text = String.format("Rp $totalPay")
                 tv_quantity.text = quantity.toString()
             } else {
                 Toast.makeText(this, "Maaf, jumlah tidak valid", Toast.LENGTH_SHORT).show()
