@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
                 et_address.text.toString(),
                 et_phone_number.text.toString(),
                 "default profile image url",
-                MD5.encript(et_password.text.toString())
+                et_password.text.toString()
             )
             registerPresenter.register(user)
         }
@@ -104,7 +104,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
             }
 
             // password and password validation must be same
-            if (user.password != MD5.encript(et_password_validation.text.toString())){
+            if (user.password != et_password_validation.text.toString()){
                 et_password.error = "Kata Sandi Harus Sama"
                 et_password.requestFocus()
                 return false
