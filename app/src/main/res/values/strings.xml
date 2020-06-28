@@ -75,6 +75,8 @@
     <string name="tidak_ada_transaksi">Tidak Ada Transaksi</string>
     <string name="hapus">Hapus</string>
     <string name="default_discount">50%</string>
+    <string name="alamat_email_anda">Alamat email Anda</string>
+    <string name="send">Kirim</string>
     <string-array name="transaction_progress">
         <item>Sedang Diproses</item>
         <item>Riwayat</item>

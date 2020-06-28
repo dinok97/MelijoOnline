@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import com.dinokeylas.melijoonline.ForgotPasswordActivity
 import com.dinokeylas.melijoonline.HomeActivity
 import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.contract.LoginContract
@@ -28,6 +29,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         tv_register.setOnClickListener {
             navigateToRegister()
+        }
+
+        tv_forget_password.setOnClickListener {
+            loginPresenter.forgotPassword()
         }
     }
 
@@ -75,6 +80,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun navigateToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))
+    }
+
+    override fun navigateToForgotPassword() {
+        startActivity(Intent(this, ForgotPasswordActivity::class.java))
     }
 
 }

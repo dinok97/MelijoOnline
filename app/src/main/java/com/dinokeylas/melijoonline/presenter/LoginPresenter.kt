@@ -1,8 +1,10 @@
 package com.dinokeylas.melijoonline.presenter
 
 import com.dinokeylas.melijoonline.contract.LoginContract
+import com.dinokeylas.melijoonline.util.Constant.Collection.Companion.USER
 import com.dinokeylas.melijoonline.util.MD5
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginPresenter(_view: LoginContract.View): LoginContract.Presenter{
 
@@ -18,9 +20,9 @@ class LoginPresenter(_view: LoginContract.View): LoginContract.Presenter{
 
         if (isValidInput(email, password)){
             view.showProgressBar()
-            mAuth.signInWithEmailAndPassword(email, MD5.encript(password))
+            mAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
-                    onLoginSuccess()
+                    updateUser(password)
                 }
                 .addOnFailureListener {
                     onLoginFailure()
@@ -38,9 +40,23 @@ class LoginPresenter(_view: LoginContract.View): LoginContract.Presenter{
         view.navigateToHome()
     }
 
+    override fun updateUser(password: String) {
+        val user = FirebaseAuth.getInstance().currentUser;
+        FirebaseFirestore.getInstance().collection(USER).document(user?.uid!!)
+            .update("password", MD5.encript(password)).addOnSuccessListener {
+                onLoginSuccess()
+            }.addOnFailureListener{
+                onLoginFailure()
+            }
+    }
+
     override fun onLoginFailure() {
         view.hideProgressBar()
         view.showToastMessage("Pastikan pasangan email dan password yang anda masukkan adalah benar")
+    }
+
+    override fun forgotPassword(){
+        view.navigateToForgotPassword()
     }
 
 }
