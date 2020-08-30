@@ -136,7 +136,12 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun deleteOldImage(oldProfileImgUrl: String){
-        FirebaseStorage.getInstance().getReferenceFromUrl(oldProfileImgUrl).delete().addOnSuccessListener {
+        if(oldProfileImgUrl != "default profile image url"){
+            FirebaseStorage.getInstance().getReferenceFromUrl(oldProfileImgUrl).delete().addOnSuccessListener {
+                progress_bar.visibility = View.GONE
+                oldProfileImageUrl = profileImageUrl
+            }
+        } else {
             progress_bar.visibility = View.GONE
             oldProfileImageUrl = profileImageUrl
         }
