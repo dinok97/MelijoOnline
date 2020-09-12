@@ -48,7 +48,7 @@ class DetailItemActivity : AppCompatActivity() {
         val unitSale = intent.getStringExtra("unitSale")
         val discount = intent.getIntExtra("discount", 0)
         val imageUrl = intent.getStringExtra("imageUrl")
-        val actualPrice = itemPrice - (itemPrice.toDouble() / 100)
+        val actualPrice = itemPrice - ((discount.toDouble() / 100) * itemPrice)
 
         tv_item_name.text = itemName
         tv_item_desc.text = itemDesc
