@@ -10,9 +10,9 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@drawable/melijo_logo"
+        android:icon="@drawable/melijo_online_logo_square"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/melijo_logo"
+        android:roundIcon="@drawable/melijo_online_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ForgotPasswordActivity"></activity>
