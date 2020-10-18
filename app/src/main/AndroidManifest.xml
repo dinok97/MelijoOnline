@@ -12,10 +12,10 @@
         android:fullBackupContent="true"
         android:icon="@drawable/melijo_online_logo_square"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/melijo_online_logo_round"
+        android:roundIcon="@drawable/melijo_online_logo_square"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity"/>
         <activity android:name=".VegetablePackageActivity" />
         <activity android:name=".FruitActivity" />
         <activity android:name=".MeatActivity" />
