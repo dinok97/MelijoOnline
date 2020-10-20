@@ -31,7 +31,7 @@ class DetailItemActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.title = "Detail"
+        supportActionBar?.title = "Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val mUser = FirebaseAuth.getInstance().currentUser
@@ -87,7 +87,7 @@ class DetailItemActivity : AppCompatActivity() {
             val date = Calendar.getInstance().time
             val transaction = Transaction(
                 "tranId", transactionCode, userId!!, user.email, date,
-                itemName, itemPrice, imageUrl, user.address, quantity, totalPay, sellerName,
+                itemName!!, itemPrice, imageUrl!!, user.address, quantity, totalPay, sellerName!!,
                 false, IN_TROLLEY
             )
             if (isValidData(transaction)) {

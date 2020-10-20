@@ -1,6 +1,5 @@
 package com.dinokeylas.melijoonline
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,7 +12,6 @@ import com.dinokeylas.melijoonline.model.Item
 import com.dinokeylas.melijoonline.presenter.MeatPresenter
 import com.dinokeylas.melijoonline.util.GridItemDecoration
 import kotlinx.android.synthetic.main.activity_sea_food.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class MeatActivity : AppCompatActivity(), MeatContract.View {
@@ -28,7 +26,7 @@ class MeatActivity : AppCompatActivity(), MeatContract.View {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)?.title = "Daftar Daging"
+        supportActionBar?.title = "Daftar Daging"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -51,7 +49,7 @@ class MeatActivity : AppCompatActivity(), MeatContract.View {
 
     override fun onBackPressed(){
         super.onBackPressed()
-        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 
     override fun onSupportNavigateUp(): Boolean {

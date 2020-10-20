@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.storage.FirebaseStorage
 import java.io.IOException
 
+@Suppress("DEPRECATION")
 class EditProfileActivity : AppCompatActivity() {
 
     private val CHOOSE_IMAGE = 101

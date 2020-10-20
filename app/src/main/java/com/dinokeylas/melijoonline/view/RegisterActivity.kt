@@ -11,7 +11,6 @@ import com.dinokeylas.melijoonline.R
 import com.dinokeylas.melijoonline.contract.RegisterContract
 import com.dinokeylas.melijoonline.model.User
 import com.dinokeylas.melijoonline.presenter.RegisterPresenter
-import com.dinokeylas.melijoonline.util.MD5
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.et_email
 import kotlinx.android.synthetic.main.activity_register.et_password
